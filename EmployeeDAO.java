@@ -1,7 +1,7 @@
-package com.del.dao;
+package com.del.second.dao;
+import com.del.second.entity.Employee;
 import java.sql.*;
 import java.util.ArrayList;
-import com.del.entity.Employee;
 public class EmployeeDAO 
 {
 	public boolean insertEmployee(Employee emp)
