@@ -1,10 +1,18 @@
-package com.del.second.entity;
+package com.deloitte.firstmvn.hibsecond;
 import java.sql.Date;
-public class Employee
+import javax.persistence.Table;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+@Entity
+@Table(name="employee")
+public class Employee 
 {
+	@Id
 	int empid;
 	String ename;
 	double salary;
+	@Column(name="dob")
 	Date doj;
 	public Employee() {}
 	public Employee(int empid, String ename, double salary,Date doj) 
@@ -35,5 +43,5 @@ public class Employee
 	}
 	public void setDoj(Date doj) {
 		this.doj = doj;
-	}	
+	}
 }
