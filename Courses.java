@@ -1,41 +1,49 @@
-package com.del.assesment.entity;
+package com.deloitte.secondmvn.hibfourth.entity;
+import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+@Entity
 public class Courses
 {
-		int course_id;
-		String course_name;
-		int course_duration;
-		double course_fee;
-		public Courses() {}
-		public Courses(int course_id, String course_name, int course_duration, double course_fee) 
-		{
-			this.course_id = course_id;
-			this.course_name = course_name;
-			this.course_duration = course_duration;
-			this.course_fee = course_fee;
-		}
-		public int getCourse_id() {
-			return course_id;
-		}
-		public void setCourse_id(int course_id) {
-			this.course_id = course_id;
-		}
-		public String getCourse_name() {
-			return course_name;
-		}
-		public void setCourse_name(String course_name) {
-			this.course_name = course_name;
-		}
-		public int getCourse_duration() {
-			return course_duration;
-		}
-		public void setCourse_duration(int course_duration) {
-			this.course_duration = course_duration;
-		}
-		public double getCourse_fee() {
-			return course_fee;
-		}
-		public void setCourse_fee(double course_fee) {
-			this.course_fee = course_fee;
-		}
-		
+	@Id
+	int cid;
+	String cname;
+	int duration;
+	@ManyToMany
+	@JoinTable(name="student_course_reg",joinColumns= {@JoinColumn(name="cid")},inverseJoinColumns= {@JoinColumn(name="sid")})
+	List<Student> slist;
+	public Courses() {}
+	public Courses(int cid, String cname, int duration) 
+	{
+		this.cid = cid;
+		this.cname = cname;
+		this.duration = duration;
+	}
+	public int getCid() {
+		return cid;
+	}
+	public void setCid(int cid) {
+		this.cid = cid;
+	}
+	public String getCname() {
+		return cname;
+	}
+	public void setCname(String cname) {
+		this.cname = cname;
+	}
+	public int getDuration() {
+		return duration;
+	}
+	public void setDuration(int duration) {
+		this.duration = duration;
+	}
+	public List<Student> getSlist() {
+		return slist;
+	}
+	public void setSlist(List<Student> slist) {
+		this.slist = slist;
+	}
 }

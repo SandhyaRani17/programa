@@ -10,7 +10,7 @@
         <property name="hibernate.connection.password">tiger</property>
         <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
         <property name="hibernate.show_sql">true</property>
-                 <mapping class="com.deloitte.secondmvn.hibfourth.entity.AadharCard" />
-                 <mapping class="com.deloitte.secondmvn.hibfourth.entity.Person" />
+                 <mapping class="com.deloitte.secondmvn.hibfourth.entity.Department" />
+                 <mapping class="com.deloitte.secondmvn.hibfourth.entity.Employee" />
 	</session-factory>
 </hibernate-configuration>

@@ -1,21 +1,24 @@
-package com.deloitte.firstmvn.hibthird.entity;
-import javax.persistence.DiscriminatorColumn;
+package com.deloitte.secondmvn.hibfourth.entity;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 @Entity
-@Inheritance(strategy=InheritanceType.JOINED)
-//@DiscriminatorColumn(name="type")
-public abstract class Employee 
+public class Employee 
 {
 	@Id
 	int empid;
 	String ename;
+	double salary;
+	@ManyToOne
+	@JoinColumn(name="deptno")
+	Department dept;
 	public Employee() {}
-	public Employee(int empid, String ename) 
+	public Employee(int empid, String ename, double salary) 
 	{
-		this.empid = empid; this.ename = ename;
+		this.empid = empid;
+		this.ename = ename;
+		this.salary = salary;
 	}
 	public int getEmpid() {
 		return empid;
@@ -28,5 +31,17 @@ public abstract class Employee
 	}
 	public void setEname(String ename) {
 		this.ename = ename;
+	}
+	public double getSalary() {
+		return salary;
+	}
+	public void setSalary(double salary) {
+		this.salary = salary;
+	}
+	public Department getDept() {
+		return dept;
+	}
+	public void setDept(Department dept) {
+		this.dept = dept;
 	}
 }
