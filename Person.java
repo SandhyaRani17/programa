@@ -1,26 +1,19 @@
-package com.deloitte.secondmvn.hibfourth.entity;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-@Entity
+package com.deloitte.thirdmvn.firstspringapp.beans;
 public class Person 
 {
-	@Id
+	int ssn;
 	String name;
-	int age;
-	String address;
-	@OneToOne
-	@JoinColumn(name="aid")
-	AadharCard acard;
+	Address address;
 	public Person() {}
-	public Person(String name, int age, String address,AadharCard acard)
+	public Person(int ssn, String name, Address address) 
 	{
-		super();
-		this.name = name;
-		this.age = age;
-		this.address = address;
-		this.acard=acard;
+		this.ssn = ssn;  this.name = name; this.address = address;
+	}
+	public int getSsn() {
+		return ssn;
+	}
+	public void setSsn(int ssn) {
+		this.ssn = ssn;
 	}
 	public String getName() {
 		return name;
@@ -28,22 +21,10 @@ public class Person
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getAge() {
-		return age;
-	}
-	public void setAge(int age) {
-		this.age = age;
-	}
-	public String getAddress() {
+	public Address getAddress() {
 		return address;
 	}
-	public void setAddress(String address) {
+	public void setAddress(Address address) {
 		this.address = address;
-	}
-	public AadharCard getAcard() {
-		return acard;
-	}
-	public void setAcard(AadharCard acard) {
-		this.acard = acard;
 	}
 }

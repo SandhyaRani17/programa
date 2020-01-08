@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    			 		http://www.springframework.org/schema/beans/spring-beans.xsd">
+		<bean id="wish1"  class="com.deloitte.thirdmvn.firstspringapp.beans.Wisher" scope="prototype" >
+			<property name ="message"  value="Hello World"/>
+		</bean>
+		<bean id="add1"  class="com.deloitte.thirdmvn.firstspringapp.beans.Address" >
+			<property name ="hno"  value="1-2-3"/>
+			<property name ="city"  value="Hyderbad"/>
+			<property name ="state"  value="telangana"/>
+		</bean>
+		<bean id="per1"  class="com.deloitte.thirdmvn.firstspringapp.beans.Person">
+		<property name ="ssn"  value="101"/>
+			<property name ="name"  value="ajay"/>
+			<property name ="address"  ref="add1"/>
+		</bean>
+</beans>
