@@ -1,18 +1,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-
-  <groupId>com.deloitte.thirdmvn</groupId>
-  <artifactId>firstspringapp</artifactId>
+  <groupId>com.deloitte.webmvc</groupId>
+  <artifactId>firstmvcapp</artifactId>
+  <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
-  <packaging>jar</packaging>
-
-  <name>firstspringapp</name>
+  <name>firstmvcapp Maven Webapp</name>
   <url>http://maven.apache.org</url>
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
-
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -22,13 +16,16 @@
     </dependency>
     <dependency>
     <groupId>org.springframework</groupId>
-    <artifactId>spring-core</artifactId>
+    <artifactId>spring-webmvc</artifactId>
     <version>5.0.0.RELEASE</version>
     </dependency>
     <dependency>
-    <groupId>org.springframework</groupId>
-    <artifactId>spring-context</artifactId>
-    <version>5.0.0.RELEASE</version>
+    <groupId>javax.servlet</groupId>
+    <artifactId>servlet-api</artifactId>
+    <version>3.0-alpha-1</version>
     </dependency>
   </dependencies>
+  <build>
+    <finalName>firstmvcapp</finalName>
+  </build>
 </project>
