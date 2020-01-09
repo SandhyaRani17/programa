@@ -1,12 +1,16 @@
-package com.del.first.entity;
+package com.spring.web.entity;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+@Entity
 public class Users 
 {
+	@Id
 	String username;
 	String password;
 	public Users() {}
-	public Users(String username, String password)
+	public Users(String username, String password) 
 	{
-		this.username = username;	this.password = password;
+		this.username = username; this.password = password;
 	}
 	public String getUsername() {
 		return username;
@@ -20,5 +24,4 @@ public class Users
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
 }
