@@ -1,8 +1,6 @@
-package com.deloitte.secondmvn.hibfourth.entity;
+package com.spring.web.entity;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 @Entity
 public class Employee 
 {
@@ -10,15 +8,10 @@ public class Employee
 	int empid;
 	String ename;
 	double salary;
-	@ManyToOne
-	@JoinColumn(name="deptno")
-	Department dept;
 	public Employee() {}
 	public Employee(int empid, String ename, double salary) 
 	{
-		this.empid = empid;
-		this.ename = ename;
-		this.salary = salary;
+		this.empid = empid; this.ename = ename; this.salary = salary;
 	}
 	public int getEmpid() {
 		return empid;
@@ -37,11 +30,5 @@ public class Employee
 	}
 	public void setSalary(double salary) {
 		this.salary = salary;
-	}
-	public Department getDept() {
-		return dept;
-	}
-	public void setDept(Department dept) {
-		this.dept = dept;
 	}
 }

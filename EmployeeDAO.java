@@ -1,176 +1,44 @@
-package com.del.second.dao;
-import com.del.second.entity.Employee;
-import java.sql.*;
-import java.util.ArrayList;
+package com.spring.web.dao;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import com.spring.web.entity.Employee;
+@Repository
 public class EmployeeDAO 
 {
-	public boolean insertEmployee(Employee emp)
+	SessionFactory sessionFactory;
+	@Autowired
+	public EmployeeDAO(SessionFactory sessionfactory)
 	{
-		int count=0;
-		Connection con=null;
-		PreparedStatement pst=null;
-		String url="jdbc:oracle:thin:@localhost:1521:orcl";
-		try
-		{
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			con = DriverManager.getConnection(url,"scott","tiger");
-			pst=con.prepareStatement("insert into employee values(?,?,?,?)");
-			pst.setInt(1,emp.getEmpid()); pst.setString(2,emp.getEname());
-			pst.setDouble(3,emp.getSalary());pst.setDate(4,emp.getDoj());
-			count=pst.executeUpdate();
-		}
-		catch(Exception ex)
-		{
-			ex.printStackTrace();
-		}
-		finally
-		{
-			try
-			{
-				if(pst!=null)pst.close();
-				if(con!=null)pst.close();
-			}
-			catch(Exception ex)
-			{
-				ex.printStackTrace();
-			}
-		}
-		return count==1;
+		this.sessionFactory=sessionfactory;
 	}
-	public boolean modifyEmployee(Employee emp)
+	public void insertEmployee(Employee e)
 	{
-		int count=0;
-		Connection con=null;
-		PreparedStatement pst=null;
-		String url="jdbc:oracle:thin:@localhost:1521:orcl";
-		try
-		{
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			con = DriverManager.getConnection(url,"scott","tiger");
-			pst=con.prepareStatement("update employee set ename=?,salary=? where empid=?");
-			pst.setString(1,emp.getEname()); pst.setDouble(2,emp.getSalary());
-			pst.setInt(3,emp.getEmpid());
-			count=pst.executeUpdate();
-		}
-		catch(Exception ex)
-		{
-			ex.printStackTrace();
-		}
-		finally
-		{
-			try
-			{
-				if(pst!=null)pst.close();
-				if(con!=null)pst.close();
-			}
-			catch(Exception ex)
-			{
-				ex.printStackTrace();
-			}
-		}
-		return count==1;
+		Session session = sessionFactory.openSession();
+		session.save(e);
+		session.beginTransaction().commit();
 	}
-		public boolean removeEmployee(int empid)
-		{
-			int count=0;
-			Connection con=null;
-			PreparedStatement pst=null;
-			String url="jdbc:oracle:thin:@localhost:1521:orcl";
-			try
-			{
-				Class.forName("oracle.jdbc.driver.OracleDriver");
-				con = DriverManager.getConnection(url,"scott","tiger");
-				pst=con.prepareStatement("delete from employee where empid=?");
-				pst.setInt(1,empid);
-				count=pst.executeUpdate();
-			}
-			catch(Exception ex)
-			{
-				ex.printStackTrace();
-			}
-			finally
-			{
-				try
-				{
-					if(pst!=null)pst.close();
-					if(con!=null)pst.close();
-				}
-				catch(Exception ex)
-				{
-					ex.printStackTrace();
-				}
-			}
-			return count==1;
-		}
-		public Employee getEmployee(int empid)
-		{
-			Employee emp =null;
-			Connection con=null;
-			PreparedStatement pst=null;
-			ResultSet rs=null;
-			String url="jdbc:oracle:thin:@localhost:1521:orcl";
-			try
-			{
-				Class.forName("oracle.jdbc.driver.OracleDriver");
-				con = DriverManager.getConnection(url,"scott","tiger");
-				pst=con.prepareStatement("select * from employee where empid=?");
-				pst.setInt(1,empid);
-				rs =pst.executeQuery();
-				if(rs.next())
-					emp=new Employee(rs.getInt(1),rs.getString(2),rs.getDouble(3),rs.getDate(4));
-			}
-			catch(Exception ex)
-			{
-				ex.printStackTrace();
-			}
-			finally
-			{
-				try
-				{
-					if(rs!=null)rs.close();
-					if(pst!=null)pst.close();
-					if(con!=null)pst.close();
-				}
-				catch(Exception ex)
-				{
-					ex.printStackTrace();
-				}
-			}
-			return emp;
-		}
-		public ArrayList<Employee> getEmployee()
-		{
-			ArrayList<Employee> elist=new ArrayList<Employee>();
-			Connection con=null;
-			PreparedStatement pst=null;
-			ResultSet rs=null;
-			String url="jdbc:oracle:thin:@localhost:1521:orcl";
-			try
-			{
-				Class.forName("oracle.jdbc.driver.OracleDriver");
-				con = DriverManager.getConnection(url,"scott","tiger");
-				pst=con.prepareStatement("select * from employee ");
-				rs =pst.executeQuery();
-				while(rs.next())
-				 elist.add(new Employee(rs.getInt(1),rs.getString(2),rs.getDouble(3),rs.getDate(4)));
-			}
-			catch(Exception ex)
-			{
-				ex.printStackTrace();
-			}
-			finally
-			{
-				try
-				{
-					if(rs!=null)rs.close();
-					if(pst!=null)pst.close();
-					if(con!=null)pst.close();
-				}
-				catch(Exception ex)
-				{
-					ex.printStackTrace();
-				}
-			}
-			return elist;
+	public void deleteEmployee(int empid)
+	{
+		Session session = sessionFactory.openSession();
+		Employee e =session.get(Employee.class,empid);
+		session.delete(e);
+	    session.beginTransaction().commit();
 	}
+	public void modifyEmployee(Employee e)
+	{
+		Session session = sessionFactory.openSession();
+		Employee e1 = session.get(Employee.class,e.getEmpid());
+		e1.setEname(e.getEname()); e1.setSalary(e.getSalary());
+		session.beginTransaction().commit();
+	}
+	public Employee getEmployee(int empid)
+	{
+		Session session = sessionFactory.openSession();
+		return session.get(Employee.class,empid);
+	}
+	
+	
 }
+
