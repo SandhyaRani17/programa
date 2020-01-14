@@ -20,14 +20,17 @@ import jxl.write.WriteException;
 import TestAutomate.Excel;
 import TestAutomate.FunctionCalling;
 public class TestCaseOne {
-	public static void main(String[] args) throws FileNotFoundException, IOException,ElementNotVisibleException, InterruptedException, BiffException, WriteException {
+	public static void main(String[] args) throws
+	FileNotFoundException, IOException,ElementNotVisibleException,
+	InterruptedException, BiffException, WriteException {
 		
 		//Accessing keywords from Excel file 
 				
-				File myfile= new File("C:\\Users\\admin\\Desktop\\TestcaseOne.xls");
+				File myfile= new File("C://Users//admin//Desktop//TestcaseOne.xls");
 				Excel objExcel = new Excel();
 				Workbook objwork = Workbook.getWorkbook(myfile);
 				Sheet objsheet = objwork.getSheet("TC001");
+				System.setProperty("webdriver.chrome.driver","C://Users//admin//Downloads//chromedriver_win32//chromedriver.exe");
 				FunctionCalling obj1=new FunctionCalling();
 				for(int i=1;i<5;i++)
 				 {	 
@@ -38,7 +41,7 @@ public class TestCaseOne {
 		if(a.equals("LaunchOpenCart"))
 		{
 				boolean value= obj1.LaunchOpenCart();      //Launching OpenCart using function
-				if (value=true)
+				if (value= true)
 				{
 					objExcel.Export(5, 1, "User is able to launch the open cart application Successfully");
 					objExcel.Export(6, 1, "Passed");
@@ -119,5 +122,4 @@ public class TestCaseOne {
 					
 				}
 		}
-		}
-}
+		}}
