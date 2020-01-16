@@ -1,0 +1,11 @@
+Start auto log messages stack - Iteration 2.	[MsgId: MMSG-10545]
+submit.c(7): web_add_auto_header("Sec-Fetch-Mode") started  	[MsgId: MMSG-26355]
+submit.c(7): web_add_auto_header("Sec-Fetch-Mode") was successful  	[MsgId: MMSG-26392]
+submit.c(10): web_add_auto_header("Sec-Fetch-Site") started  	[MsgId: MMSG-26355]
+submit.c(10): web_add_auto_header("Sec-Fetch-Site") was successful  	[MsgId: MMSG-26392]
+submit.c(13): lr_think_time: 69.00 seconds.	[MsgId: MMSG-15948]
+submit.c(15): web_url("newtable_3") started  	[MsgId: MMSG-26355]
+submit.c(15): Connection to api.mlab.com:443 closed after being inactive for 202 seconds, exceeding the "HTTP Keep-Alive timeout" Runtime Setting (60 seconds). URL="https://api.mlab.com/api/1/databases/userdetails/collections/newtable?apiKey=YEX0M2QMPd7JWJw_ipMB3a5gDddt4B_X"  	[MsgId: MMSG-27648]
+submit.c(15): Error -27792: Failed to connect to server "api.mlab.com:443": [10065] No Route to Host  	[MsgId: MERR-27792]
+End auto log messages stack.	[MsgId: MMSG-10544]
+
