@@ -1,0 +1,34 @@
+1.Difference BVT and defects of  life cycle?
+	
+	Build Verification Test(BVT) is a set of tests run on every new build to verify that build is testable before it is released to test team for further testing.
+
+	Defect life cycle is a cycle which a defect goes through during its lifetime.Defect life cycle is related to the bug found during testing.
+
+
+2.what is Test Process and Test Design?
+
+	Test Process:  Testing is the process of evaluating a system or its components with the intent to find whether it satisfies the specified requirements or not. Testing is executing a system in order to identify any gaps, errors, or missing requirements in contrary to the actual requirements.
+
+	Test Design:  Test design is a process that describes “how” testing should be done. 
+
+3.what is the difference between HTTP/SOAP/REST?
+
+	 REST API has no has no official standard at all because it is an architectural style. 
+	SOAP API, on the other hand, has an official standard because it is a protocol. 
+	REST APIs uses multiple standards like HTTP, JSON, URL, and XML while SOAP APIs is largely based on HTTP and XML.
+
+
+4.what Kind of tool is selenium in terms of Web based application?
+
+	Selenium is an open source tool which is used for automating the tests carried out on web browsers.
+
+5.what is the Load Runner suite and selenium suite?
+
+	 Load Runner suite: LoadRunner suite is an automated load testing tool that allows you to test your application before, during, and after deployment. ... The Analysis is used to analyze load test results.
+
+	selenium suite: Selenium is a free (open source) automated testing suite for web applications across different browsers and platforms.
+
+
+6.Can selenium scripts be embedded in Load Runner - justify
+
+	
